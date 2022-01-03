@@ -1,0 +1,34 @@
+.header-button-div {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.header-button-div a {
+  color: black;
+  text-decoration: none;
+}
+
+.header-button-div a:hover {
+  color: #3498db;
+  transition: 0.2s;
+  background-color: #ecf0f1;
+}
+
+.header-button-div a::after {
+  border: solid black 1px;
+}
+
+.home-item a {
+  text-decoration: none;
+}
+
+.home-item img {
+  width: auto;
+  height: 3rem;
+}
+
+.home-item span {
+  white-space: nowrap;
+  text-decoration: none;
+  color: black;
+}
