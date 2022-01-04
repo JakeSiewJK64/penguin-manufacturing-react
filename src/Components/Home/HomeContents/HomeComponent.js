@@ -1,11 +1,13 @@
 import { Button } from "@mui/material";
 import Flex from "@react-css/flex";
 import "./HomeComponent.css";
+import Badge from "react-bootstrap/Badge";
 
 export default function HomeComponent() {
   const stories_boards = [
     {
-      img: "https://bsmedia.business-standard.com/media-handler.php?mediaPath=https://bsmedia.business-standard.com/_media/bs/img/article/2021-02/07/full/1612720523-1442.jpg&width=1200",
+      img: "https://media.springernature.com/lw785/springer-static/image/prt%3A978-3-540-29678-2%2F9/MediaObjects/978-3-540-29678-2_9_Part_Fig2-2593_HTML.jpg",
+      url: "https://www.nature.com/articles/s41467-021-25942-4",
       title:
         "Compensatory ion transport buffers daily protein rhythms to regulate osmotic balance and cellular physiology",
       author: "Pete Newham",
@@ -14,7 +16,8 @@ export default function HomeComponent() {
       type: "R&D/Discovery",
     },
     {
-      img: "https://bsmedia.business-standard.com/media-handler.php?mediaPath=https://bsmedia.business-standard.com/_media/bs/img/article/2021-02/07/full/1612720523-1442.jpg&width=1200",
+      img: "https://cancerdiscovery.aacrjournals.org/content/candisc/5/7/694/F1.large.jpg",
+      url: "https://www.nature.com/articles/s41467-021-22057-8",
       title:
         "Clinical impact of subclonal EGFR T790M mutations in advanced-stage EGFR-mutant non-small-cell lung cancers",
       author: "Tereza Vaclová, Elza De Bruin",
@@ -23,7 +26,8 @@ export default function HomeComponent() {
       type: "R&D/Oncology",
     },
     {
-      img: "https://bsmedia.business-standard.com/media-handler.php?mediaPath=https://bsmedia.business-standard.com/_media/bs/img/article/2021-02/07/full/1612720523-1442.jpg&width=1200",
+      img: "https://s3.amazonaws.com/prod.tctmd.com/public/2018-01/1.18.18%20Bariatric%20Surgery%20Cardiometabolic%20Benefits%20Down%2C%20but%20Not%20Out%2C%20at%205%20Years%20HEADER%20GRAY%20BRIGHT_2.jpg",
+      url: "https://diabetesjournals.org/care/article/43/4/860/35719/Effects-of-Bariatric-Surgery-in-Early-and-Adult",
       title:
         "Effects of Bariatric Surgery in Early- and Adult-Onset Obesity in the Prospective Controlled Swedish Obese Subjects Study",
       author: "Bjorn Carlsson ",
@@ -77,7 +81,7 @@ export default function HomeComponent() {
             );
           })}
         </Flex>
-        <h2>Stories</h2>
+        <h2>Publications</h2>
         {stories_boards.map((x) => {
           return (
             <div className="card shadow content-card-column">
@@ -94,12 +98,33 @@ export default function HomeComponent() {
                     <strong>Authored By: </strong>
                     <p className="card-text">{x.author}</p>
                   </Flex>
+                  <Flex row gap={5}>
+                    <strong>Date: </strong>
+                    <p className="card-text">{x.date}</p>
+                  </Flex>
+                  <Flex row gap={5}>
+                    <strong>Published: </strong>
+                    <Badge
+                      pill
+                      bg={
+                        x.category === "Nature"
+                          ? "success"
+                          : x.category === "Nature Communications"
+                          ? "warning"
+                          : "info"
+                      }
+                    >
+                      {x.category}
+                    </Badge>
+                  </Flex>
                 </Flex>
                 <div
                   className="card-body ms-auto mt-auto"
                   style={{ bottom: 0, right: 0, position: "absolute" }}
                 >
-                  <Button>See More</Button>
+                  <a href={x.url}>
+                    <Button>See More</Button>
+                  </a>
                 </div>
               </Flex>
             </div>

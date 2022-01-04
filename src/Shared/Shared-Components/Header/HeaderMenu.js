@@ -18,21 +18,6 @@ export default function HeaderMenu() {
       url: "/hub",
       component: null,
     },
-    {
-      title: "item A",
-      url: "/hub",
-      component: null,
-    },
-    {
-      title: "item B",
-      url: "/hub",
-      component: null,
-    },
-    {
-      title: "item C",
-      url: "/hub",
-      component: null,
-    },
   ];
 
   return (
@@ -42,7 +27,7 @@ export default function HeaderMenu() {
           <Link to="/">
             <div style={{ cursor: "pointer" }} className="w-25">
               <Flex row className="home-item">
-                <img src={logo} className="m-1" alt="alt" />
+                <img src={logo} className="m-1" alt="alt" draggable="false" />
                 <span className="my-auto ms-2">Delta Pharmaceuticals</span>
               </Flex>
             </div>
