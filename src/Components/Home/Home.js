@@ -13,7 +13,10 @@ export default function Home() {
             <span>See Products</span>
           </div>
         </Flex>
-        <img src="https://edu.ieee.org/pa-upanama/wp-content/uploads/sites/374/2015/02/minimalistic-simple-background-white-206534-1920x1200.jpg" />
+        <img
+          src="https://edu.ieee.org/pa-upanama/wp-content/uploads/sites/374/2015/02/minimalistic-simple-background-white-206534-1920x1200.jpg"
+          alt="alt"
+        />
       </div>
       <div className="after-banner">
         <HomeComponent />

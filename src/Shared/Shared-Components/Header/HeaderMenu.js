@@ -42,7 +42,7 @@ export default function HeaderMenu() {
           <Link to="/">
             <div style={{ cursor: "pointer" }} className="w-25">
               <Flex row className="home-item">
-                <img src={logo} className="m-1" />
+                <img src={logo} className="m-1" alt="alt" />
                 <span className="my-auto ms-2">Delta Pharmaceuticals</span>
               </Flex>
             </div>

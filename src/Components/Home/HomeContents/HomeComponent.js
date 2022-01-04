@@ -60,6 +60,7 @@ export default function HomeComponent() {
             return (
               <div className="card shadow content-card-row" key={x.title}>
                 <img
+                  alt="alt"
                   draggable="false"
                   className="card-img-top w-50 mx-auto mt-3"
                   src={x.img}
@@ -81,7 +82,12 @@ export default function HomeComponent() {
           return (
             <div className="card shadow content-card-column">
               <Flex row>
-                <img src={x.img} className="p-2" style={{ width: "20rem" }} />
+                <img
+                  src={x.img}
+                  className="p-2"
+                  style={{ width: "20rem" }}
+                  alt="alt"
+                />
                 <Flex column className="pt-2">
                   <h4>{x.title}</h4>
                   <Flex row gap={5}>
