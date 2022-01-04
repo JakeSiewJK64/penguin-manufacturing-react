@@ -12,6 +12,7 @@ function App() {
       <HeaderMenu />
       <Switch>
         <Route
+          exact
           path="/authentication"
           render={() => {
             return <Login />;
