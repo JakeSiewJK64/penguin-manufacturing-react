@@ -1,6 +1,6 @@
 .banner-footer {
-  position: absolute;
-  bottom: 0;
+  position: relative;
+  margin-top: auto;
   background-color: #3498db;
 }
 

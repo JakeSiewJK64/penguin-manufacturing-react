@@ -1,0 +1,9 @@
+.content-card-row {
+  width: 20rem;
+  height: 30rem;
+}
+
+.content-card-column {
+  width: 100%;
+  height: 20rem;
+}

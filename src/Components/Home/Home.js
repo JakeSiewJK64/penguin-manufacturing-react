@@ -1,6 +1,7 @@
 import logo from "../../img/logo.svg";
 import "./Home.css";
 import Flex from "@react-css/flex";
+import HomeComponent from "./HomeContents/HomeComponent";
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
         <img src="https://edu.ieee.org/pa-upanama/wp-content/uploads/sites/374/2015/02/minimalistic-simple-background-white-206534-1920x1200.jpg" />
       </div>
       <div className="after-banner">
-        <span>hi</span>
+        <HomeComponent />
       </div>
     </div>
   );
