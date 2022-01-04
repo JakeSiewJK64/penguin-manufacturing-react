@@ -84,7 +84,7 @@ export default function HomeComponent() {
         <h2>Publications</h2>
         {stories_boards.map((x) => {
           return (
-            <div className="card shadow content-card-column">
+            <div className="card shadow content-card-column" key={x.title}>
               <Flex row>
                 <img
                   src={x.img}

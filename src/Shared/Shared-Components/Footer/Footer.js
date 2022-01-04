@@ -1,21 +1,52 @@
 import Flex from "@react-css/flex";
+import Icon from "@mdi/react";
+import { mdiCollage, mdiDiscord, mdiGithub } from "@mdi/js";
+
 import "./Footer.css";
 
 export default function Footer() {
+  const footer_menu = [
+    {
+      title: "Discord",
+      icon: mdiDiscord,
+      url: "/",
+    },
+    {
+      title: "GitHub",
+      icon: mdiGithub,
+      url: "https://github.com/JakeSiewJK64",
+    },
+    {
+      title: "Swinburne University of Technology",
+      icon: mdiCollage,
+      url: "/",
+    },
+  ];
   return (
     <div className="w-100 mx-auto banner-footer">
-      <Flex column alignContentCenter className="w-50 ms-auto me-auto">
+      <Flex column alignContentCenter className="w-75 ms-auto me-auto p-3">
         <table className="me-auto ms-auto">
-          <tr>
-            <th>Socials</th>
-            <th>Links</th>
-            <th>Location</th>
-          </tr>
-          <tr>
-            <td>Discord</td>
-            <td>Github</td>
-            <td>SWINBURNE UNIVERSITY OF TECHNOLOGY</td>
-          </tr>
+          <tbody>
+            <tr>
+              <th>Socials</th>
+              <th>Links</th>
+              <th>Location</th>
+            </tr>
+            <tr>
+              {footer_menu.map((x) => {
+                return (
+                  <td key={x.title}>
+                    <a href={x.url} className="text-decoration-none text-white">
+                      <Flex row gap={4}>
+                        <Icon path={x.icon} size={1} />
+                        <span>{x.title}</span>
+                      </Flex>
+                    </a>
+                  </td>
+                );
+              })}
+            </tr>
+          </tbody>
         </table>
       </Flex>
     </div>
