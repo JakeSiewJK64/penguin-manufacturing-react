@@ -1,23 +1,17 @@
 import { Link } from "react-router-dom";
 import Flex from "@react-css/flex";
 import "./HeaderMenu.css";
-import { useState } from "react";
 import logo from "../../../img/pm_logo.png";
-import Home from "../../../Components/Home/Home";
-import Login from "../../../Components/Login/Login";
 
 export default function HeaderMenu() {
-  const [fragmentView, setfragmentView] = useState(null);
   const headerRoutes = [
     {
       title: "Home",
-      url: "/main",
-      component: <Home />,
+      url: "/",
     },
     {
       title: "Login",
-      url: "/hub",
-      component: <Login />,
+      url: "/authentication",
     },
   ];
 
@@ -37,7 +31,7 @@ export default function HeaderMenu() {
             {headerRoutes.map((x) => {
               return (
                 <div key={x.title} className="header-button-div">
-                  <Link to="/" onClick={() => setfragmentView(x.component)}>
+                  <Link to={x.url}>
                     <p>{x.title}</p>
                   </Link>
                 </div>
@@ -46,7 +40,6 @@ export default function HeaderMenu() {
           </Flex>
         </Flex>
       </div>
-      <div>{fragmentView ? fragmentView : <Home />}</div>
     </div>
   );
 }
