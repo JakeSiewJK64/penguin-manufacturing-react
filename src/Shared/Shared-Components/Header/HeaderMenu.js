@@ -4,6 +4,7 @@ import "./HeaderMenu.css";
 import { useState } from "react";
 import logo from "../../../img/pm_logo.png";
 import Home from "../../../Components/Home/Home";
+import Login from "../../../Components/Login/Login";
 
 export default function HeaderMenu() {
   const [fragmentView, setfragmentView] = useState(null);
@@ -14,9 +15,9 @@ export default function HeaderMenu() {
       component: <Home />,
     },
     {
-      title: "Weapon Catalog",
+      title: "Login",
       url: "/hub",
-      component: null,
+      component: <Login />,
     },
   ];
 

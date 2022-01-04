@@ -1,0 +1,5 @@
+.nav-log-button:hover {
+  cursor: pointer;
+  color: #61dafb;
+  transition: 0.5s;
+}
