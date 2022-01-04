@@ -37,7 +37,50 @@
   }
 }
 
-.catalog img {
-  width: 20rem;
-  height: auto;
+.image-span {
+  font-size: 6vw;
+  right: 20vw;
+  top: 5rem;
+  text-align: center;
+}
+
+.image-span-minor {
+  font-size: 2vw;
+  right: 40vw;
+  top: 25rem;
+  text-align: center;
+}
+
+.banner {
+  position: relative;
+}
+
+.banner > img {
+  width: 100%;
+  height: 27vw;
+  position: relative;
+}
+
+.banner-text {
+  position: absolute;
+  z-index: 1;
+  top: 5vw;
+  left: 0;
+  right: 0;
+}
+
+.banner-button {
+  color: white;
+  background-color: #3498db;
+  padding: 10px;
+  text-align: center;
+}
+
+.banner-button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  background-color: transparent;
+  color: black;
+  border: #3498db 1px solid;
+  transition: 0.5s;
 }

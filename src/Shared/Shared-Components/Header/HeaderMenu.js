@@ -60,7 +60,7 @@ export default function HeaderMenu() {
           </Flex>
         </Flex>
       </div>
-      <div>{fragmentView}</div>
+      <div>{fragmentView ? fragmentView : <Home />}</div>
     </div>
   );
 }

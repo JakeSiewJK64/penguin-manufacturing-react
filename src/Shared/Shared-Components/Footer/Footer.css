@@ -1,0 +1,18 @@
+.banner-footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #3498db;
+}
+
+.banner-footer th {
+  font-size: larger;
+}
+
+.banner-footer table,
+td,
+th {
+  color: #fff;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  text-align: center;
+}
