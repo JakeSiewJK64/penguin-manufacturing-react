@@ -9,6 +9,7 @@ export default function Login() {
     <div className="w-100">
       <Flex row className="ms-auto" gap={5}>
         <img
+          alt=""
           className="ms-auto p-3"
           style={{ width: "75vw", height: "auto" }}
           src="https://www.clinicaltrialsarena.com/wp-content/uploads/sites/33/2020/10/Feature-image-top-ten-pharma-companies-in-2020.jpg"
