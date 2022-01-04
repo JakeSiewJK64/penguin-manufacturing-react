@@ -1,4 +1,3 @@
-import logo from "../../img/logo.svg";
 import "./Home.css";
 import Flex from "@react-css/flex";
 import HomeComponent from "./HomeContents/HomeComponent";

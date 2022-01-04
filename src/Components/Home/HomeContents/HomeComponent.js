@@ -2,8 +2,6 @@ import { Button } from "@mui/material";
 import Flex from "@react-css/flex";
 import "./HomeComponent.css";
 
-import QuadMotionLogo from "../../../img/QuadMotionLogisticsLogo.png";
-
 export default function HomeComponent() {
   const stories_boards = [
     {
