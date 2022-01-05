@@ -3,6 +3,10 @@
   margin-right: 10px;
 }
 
+.header-button-active {
+  border-bottom: 3px solid #3498db;
+}
+
 .header-button-div a {
   color: black;
   text-decoration: none;

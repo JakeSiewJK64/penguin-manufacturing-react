@@ -9,12 +9,12 @@ import Login from "./Components/Login/Login";
 import Home from "./Components/Home/Home";
 import PageNotFound from "./Components/PageNotFound/PageNotFound";
 import authenticationStore from "./Shared/Store/authenticationStore";
+import About from "./Components/About/About";
 
 toast.configure();
 
 function App() {
   const isValidated = authenticationStore((state) => state.isLoggedIn);
-
   return (
     <div>
       <ToastContainer />
@@ -29,6 +29,13 @@ function App() {
             } else {
               return <Login />;
             }
+          }}
+        />
+        <Route
+          exact
+          path="/about"
+          render={() => {
+            return <About />;
           }}
         />
         <Route

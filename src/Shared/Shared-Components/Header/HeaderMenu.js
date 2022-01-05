@@ -3,17 +3,32 @@ import Flex from "@react-css/flex";
 
 import "./HeaderMenu.css";
 import logo from "../../../img/pm_logo.png";
-import authenticationStore from "../../Store/authenticationStore";
 import { toast } from "react-toastify";
+
+import authenticationStore from "../../Store/authenticationStore";
+import activeViewStore from "../../Store/activeViewStore";
 
 export default function HeaderMenu() {
   const history = useHistory();
+
   const isAuthenticated = authenticationStore((state) => state.isLoggedIn);
   const setLoggedIn = authenticationStore((state) => state.setLoggedIn);
+  const setActiveView = activeViewStore((state) => state.setActiveView);
+  const activeView = activeViewStore((state) => state.activeView);
+
+  const setView = (val) => {
+    setActiveView(val);
+  };
+
   const headerRoutes = [
     {
       title: "Home",
       url: "/",
+      condition: true,
+    },
+    {
+      title: "About",
+      url: "/about",
       condition: true,
     },
   ];
@@ -34,10 +49,23 @@ export default function HeaderMenu() {
               </Flex>
             </div>
           </Link>
-          <Flex row gap={5} justifyEnd className="ms-auto my-auto">
+          <Flex
+            row
+            gap={10}
+            justifyEnd
+            className="ms-auto my-auto header-button-div"
+          >
             {headerRoutes.map((x) => {
               return (
-                <Flex row key={x.title} className="header-button-div" gap={10}>
+                <Flex
+                  row
+                  key={x.title}
+                  gap={10}
+                  className={
+                    activeView === x.title ? "header-button-active" : ""
+                  }
+                  onClick={() => setView(x.title)}
+                >
                   {x.condition ? (
                     <Link to={x.url}>
                       <p>{x.title}</p>
@@ -45,27 +73,27 @@ export default function HeaderMenu() {
                   ) : (
                     <div></div>
                   )}
-                  {!isAuthenticated ? (
-                    <Link to="/authentication">
-                      <p>Login</p>
-                    </Link>
-                  ) : (
-                    <Link to="/authentication">
-                      <p
-                        onClick={() => {
-                          localStorage.removeItem("token");
-                          goToAuth();
-                          setLoggedIn(false);
-                          toast.success("You are logged out!");
-                        }}
-                      >
-                        Logout
-                      </p>
-                    </Link>
-                  )}
                 </Flex>
               );
             })}
+            {!isAuthenticated ? (
+              <Link to="/authentication">
+                <p>Login</p>
+              </Link>
+            ) : (
+              <Link to="/authentication">
+                <p
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    goToAuth();
+                    setLoggedIn(false);
+                    toast.success("You are logged out!");
+                  }}
+                >
+                  Logout
+                </p>
+              </Link>
+            )}
           </Flex>
         </Flex>
       </div>

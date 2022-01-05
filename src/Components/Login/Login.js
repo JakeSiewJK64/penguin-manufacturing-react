@@ -14,9 +14,9 @@ export default function Login() {
 
   const SubmitForm = (val) => {
     axios
-      .post("https://penguin-manufacturing.herokuapp.com/authenticate", val)
+      .post(process.env.REACT_APP_ENDPOINT + "/authenticate", val)
       .then((x) => {
-        if (x.status == 200) {
+        if (x.status === 200) {
           toast.success("Successfully Logged In!");
           setIsLoggedIn(true);
           history.push("/");
