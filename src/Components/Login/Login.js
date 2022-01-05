@@ -1,9 +1,34 @@
 import "./Login.css";
 import Flex from "@react-css/flex";
 import { useState } from "react";
+import axios from "axios";
+import { useFormik } from "formik";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [noLogin, setNoLogin] = useState(false);
+
+  const SubmitForm = (val) => {
+    axios
+      .post("/authenticate", val)
+      .then((x) => {
+        toast.success("Successfully Logged In!");
+        localStorage.setItem("token", x.data.jwt);
+      })
+      .catch((err) => {
+        toast.error(err.response.data);
+      });
+  };
+
+  var formik = useFormik({
+    initialValues: {
+      username: "",
+      password: "",
+    },
+    onSubmit: (val) => {
+      SubmitForm(val);
+    },
+  });
 
   return (
     <div className="w-100">
@@ -19,19 +44,28 @@ export default function Login() {
             <div className="card m-3" style={{ width: "20vw" }}>
               <div className="card-body pt-5">
                 <h4 className="card-title mx-auto text-center">Login</h4>
-                <form>
+                <form onSubmit={formik.handleSubmit}>
                   <Flex column gap={10}>
                     <input
-                      type={"text"}
-                      placeholder="email"
+                      name="username"
+                      value={formik.values.username}
+                      onChange={formik.handleChange}
+                      type="text"
+                      placeholder="user name"
                       className="form-control"
                     />
                     <input
-                      type={"text"}
+                      name="password"
+                      value={formik.values.password}
+                      onChange={formik.handleChange}
+                      type="password"
                       placeholder="password"
                       className="form-control"
                     />
-                    <button className="btn btn-success m-1 mx-auto">
+                    <button
+                      type="submit"
+                      className="btn btn-success m-1 mx-auto"
+                    >
                       Login
                     </button>
                     <span
@@ -53,12 +87,18 @@ export default function Login() {
                 <form>
                   <Flex column gap={10}>
                     <input
-                      type={"text"}
+                      type="email"
+                      onChange={formik.handleChange}
+                      value={formik.values.email}
                       placeholder="email"
                       className="form-control"
+                      name="email"
                     />
                     <input
-                      type={"text"}
+                      name="password"
+                      type="password"
+                      value={formik.values.password}
+                      onChange={formik.handleChange}
                       placeholder="password"
                       className="form-control"
                     />
@@ -74,7 +114,10 @@ export default function Login() {
                         className="form-control"
                       />
                     </Flex>
-                    <button className="btn btn-warning m-1 mx-auto">
+                    <button
+                      type="submit"
+                      className="btn btn-warning m-1 mx-auto"
+                    >
                       Register
                     </button>
                     <span
