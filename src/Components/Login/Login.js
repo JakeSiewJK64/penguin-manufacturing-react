@@ -10,7 +10,7 @@ export default function Login() {
 
   const SubmitForm = (val) => {
     axios
-      .post("https://penguin-manufacturing.herokuapp.com/authenticate", val)
+      .post("/authenticate", val)
       .then((x) => {
         toast.success("Successfully Logged In!");
         localStorage.setItem("token", x.data.jwt);
