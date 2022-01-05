@@ -15,7 +15,7 @@ export default function Home() {
         </Flex>
         <img
           src="https://edu.ieee.org/pa-upanama/wp-content/uploads/sites/374/2015/02/minimalistic-simple-background-white-206534-1920x1200.jpg"
-          alt="alt"
+          alt=""
         />
       </div>
       <div className="after-banner">

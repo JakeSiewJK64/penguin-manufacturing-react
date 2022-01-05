@@ -4,16 +4,24 @@ import { useState } from "react";
 import axios from "axios";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
+import authenticationStore from "../../Shared/Store/authenticationStore";
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
   const [noLogin, setNoLogin] = useState(false);
+  const setIsLoggedIn = authenticationStore((state) => state.setLoggedIn);
+  const history = useHistory();
 
   const SubmitForm = (val) => {
     axios
       .post("https://penguin-manufacturing.herokuapp.com/authenticate", val)
       .then((x) => {
-        toast.success("Successfully Logged In!");
-        localStorage.setItem("token", x.data.jwt);
+        if (x.status == 200) {
+          toast.success("Successfully Logged In!");
+          setIsLoggedIn(true);
+          history.push("/");
+          localStorage.setItem("token", x.data.jwt);
+        }
       })
       .catch((err) => {
         toast.error(err.response.data);

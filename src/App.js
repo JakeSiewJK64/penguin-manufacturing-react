@@ -8,10 +8,13 @@ import HeaderMenu from "./Shared/Shared-Components/Header/HeaderMenu";
 import Login from "./Components/Login/Login";
 import Home from "./Components/Home/Home";
 import PageNotFound from "./Components/PageNotFound/PageNotFound";
+import authenticationStore from "./Shared/Store/authenticationStore";
 
 toast.configure();
 
 function App() {
+  const isValidated = authenticationStore((state) => state.isLoggedIn);
+
   return (
     <div>
       <ToastContainer />
@@ -21,7 +24,11 @@ function App() {
           exact
           path="/authentication"
           render={() => {
-            return <Login />;
+            if (isValidated) {
+              return <Home />;
+            } else {
+              return <Login />;
+            }
           }}
         />
         <Route

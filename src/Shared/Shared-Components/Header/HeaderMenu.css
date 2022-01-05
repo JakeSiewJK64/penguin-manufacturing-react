@@ -11,7 +11,6 @@
 .header-button-div a:hover {
   color: #3498db;
   transition: 0.2s;
-  background-color: #ecf0f1;
 }
 
 .header-button-div a::after {
