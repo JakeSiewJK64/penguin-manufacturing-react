@@ -17,6 +17,7 @@ export default function About() {
           <Flex column gap={20}>
             <Flex row>
               <img
+                draggable="false"
                 alt=""
                 className="w-25"
                 src="https://www.pharmaceutical-technology.com/wp-content/uploads/sites/10/2018/05/1l-image-WuXi-Biologics-Drug-Substance-Manufacturing-Facility-800x600.jpg"
@@ -60,12 +61,17 @@ export default function About() {
                 style={{ overflow: "hidden", height: "25rem" }}
               >
                 <div className="h-100 image-container-kryuger">
-                  <img src={kryuger} />
+                  <img draggable="false" src={kryuger} />
                 </div>
               </div>
             </Flex>
             <Flex row>
-              <img alt="" src={gina} style={{ width: "18vw" }} />
+              <img
+                draggable="false"
+                alt=""
+                src={gina}
+                style={{ width: "18vw" }}
+              />
               <div className="about-text">
                 <h4>Gina Virus</h4>
                 <span>
