@@ -1,3 +1,15 @@
+
+# 💫 Deploy to Netlify
+1. make sure to create a file called _redirects (no specific extension format).
+2. add this line `/* /index.html 200`.
+3. make sure this file is in the root directory.
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+
+# 🤳 To ignore specific files using Git
+1. go to terminal/cmd
+2. type `git update-index --assume-unchanged myfile.example`
+3. to revert back, type `git update-index --no-assume-unchanged myfile.example`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
