@@ -33,7 +33,7 @@ export default function DisclaimerDialog() {
           <DialogContentText>
             This website is built as a personal project and does not make any
             form of profit or is intended for any commercial purposes. The
-            topics and characters referneced are fictional and do not reflect
+            topics and characters discussed are pure fiction and do not reflect
             any real life entities. Any reference to 3rd party resources is
             based on either references or plain coindental. Thank you for your
             understanding.
