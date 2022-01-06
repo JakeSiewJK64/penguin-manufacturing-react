@@ -3,7 +3,7 @@ import Flex from "@react-css/flex";
 
 export default function PageNotFound() {
   return (
-    <div className="card my-4">
+    <div className="card m-4">
       <div className="card-body text-center">
         <Flex column gap={10} className="pt-5 pb-5">
           <h2 className="card-title">Oops!</h2>
