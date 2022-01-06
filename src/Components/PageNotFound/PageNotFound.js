@@ -11,7 +11,12 @@ export default function PageNotFound() {
             Looks like that page does not exist or is not currently available
             yet!
           </span>
-          <img draggable="false" src={notfound} className="w-25 mx-auto" />
+          <img
+            draggable="false"
+            alt=""
+            src={notfound}
+            className="w-25 mx-auto"
+          />
         </Flex>
       </div>
     </div>

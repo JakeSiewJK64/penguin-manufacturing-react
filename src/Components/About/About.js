@@ -61,7 +61,7 @@ export default function About() {
                 style={{ overflow: "hidden", height: "25rem" }}
               >
                 <div className="h-100 image-container-kryuger">
-                  <img draggable="false" src={kryuger} />
+                  <img draggable="false" src={kryuger} alt="" />
                 </div>
               </div>
             </Flex>
