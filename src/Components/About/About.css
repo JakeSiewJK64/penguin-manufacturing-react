@@ -8,3 +8,19 @@
   width: 100%;
   font-size: 12pt;
 }
+
+.image-container-kryuger {
+  position: absolute;
+  width: 20rem;
+  height: 25rem !important;
+  overflow: hidden;
+}
+
+.image-container-kryuger img {
+  position: absolute;
+  right: -15rem;
+  top: 0rem;
+  width: 51rem;
+  z-index: 2;
+  height: 50rem;
+}

@@ -55,9 +55,12 @@ export default function About() {
                   medicine.
                 </span>
               </div>
-              <div className="w-25">
-                <div className="w-75 mx-auto">
-                  <img alt="" src={kryuger} className="w-100" />
+              <div
+                className="w-25"
+                style={{ overflow: "hidden", height: "25rem" }}
+              >
+                <div className="h-100 image-container-kryuger">
+                  <img src={kryuger} />
                 </div>
               </div>
             </Flex>
