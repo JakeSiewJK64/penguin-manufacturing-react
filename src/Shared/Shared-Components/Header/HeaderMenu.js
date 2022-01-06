@@ -7,13 +7,16 @@ import { toast } from "react-toastify";
 
 import authenticationStore from "../../Store/authenticationStore";
 import activeViewStore from "../../Store/activeViewStore";
+import { Badge } from "react-bootstrap";
 
 export default function HeaderMenu() {
   const history = useHistory();
 
-  const isAuthenticated = authenticationStore((state) => state.isLoggedIn);
   const setLoggedIn = authenticationStore((state) => state.setLoggedIn);
   const setActiveView = activeViewStore((state) => state.setActiveView);
+
+  const isAuthenticated = authenticationStore((state) => state.isLoggedIn);
+  const sessionUser = authenticationStore((state) => state.currentUserSession);
   const activeView = activeViewStore((state) => state.activeView);
 
   const setView = (val) => {
@@ -60,6 +63,16 @@ export default function HeaderMenu() {
             justifyEnd
             className="ms-auto my-auto header-button-div"
           >
+            <sup>
+              <Badge pill bg="primary text-center py-auto mt-auto mb-auto">
+                {sessionUser !== null ? sessionUser.userrole : ""}
+              </Badge>
+            </sup>
+            <strong>
+              {sessionUser !== null
+                ? "Welcome back, " + sessionUser.username
+                : ""}
+            </strong>
             {headerRoutes.map((x) => {
               return (
                 <Flex

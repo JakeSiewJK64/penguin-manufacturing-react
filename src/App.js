@@ -1,6 +1,7 @@
 import { Route, Switch } from "react-router-dom";
-
 import { ToastContainer, toast } from "react-toastify";
+import axios from "axios";
+
 import "react-toastify/dist/ReactToastify.css";
 
 import Footer from "./Shared/Shared-Components/Footer/Footer";
@@ -16,6 +17,18 @@ toast.configure();
 
 function App() {
   const isValidated = authenticationStore((state) => state.isLoggedIn);
+  const setSessionUser = authenticationStore((state) => state.setCurrentUser);
+
+  if (localStorage.getItem("token")) {
+    axios
+      .post(process.env.REACT_APP_ENDPOINT + "/verify", {
+        jwt: localStorage.getItem("token"),
+      })
+      .then((x) => {
+        setSessionUser(x.data);
+      });
+  }
+
   return (
     <div>
       <ToastContainer />
