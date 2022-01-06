@@ -17,6 +17,7 @@ export default function About() {
           <Flex column gap={20}>
             <Flex row>
               <img
+                alt=""
                 className="w-25"
                 src="https://www.pharmaceutical-technology.com/wp-content/uploads/sites/10/2018/05/1l-image-WuXi-Biologics-Drug-Substance-Manufacturing-Facility-800x600.jpg"
               />
@@ -56,12 +57,12 @@ export default function About() {
               </div>
               <div className="w-25">
                 <div className="w-75 mx-auto">
-                  <img src={kryuger} className="w-100" />
+                  <img alt="" src={kryuger} className="w-100" />
                 </div>
               </div>
             </Flex>
             <Flex row>
-              <img src={gina} style={{ width: "18vw" }} />
+              <img alt="" src={gina} style={{ width: "18vw" }} />
               <div className="about-text">
                 <h4>Gina Virus</h4>
                 <span>
