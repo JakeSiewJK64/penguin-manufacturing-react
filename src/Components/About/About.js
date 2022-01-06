@@ -1,11 +1,14 @@
 import Flex from "@react-css/flex";
 
+import activeViewStore from "../../Shared/Store/activeViewStore";
 import "./About.css";
-
 import gina from "../../img/gina.png";
 import kryuger from "../../img/Kryuger.png";
 
 export default function About() {
+  const setActiveView = activeViewStore((state) => state.setActiveView);
+  setActiveView("About");
+
   return (
     <div>
       <div className="card m-3">
@@ -75,7 +78,7 @@ export default function About() {
                   1 Gina virus, a new variant of the disease emerged as Type 2
                   with even more severe symptoms which includes loss of breath,
                   muscle fatigue which can progress into paralysis and
-                  eventually patients can fall into coma.
+                  eventually patients can fall into coma and eventually, death.
                 </span>
               </div>
             </Flex>

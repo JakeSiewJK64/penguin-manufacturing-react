@@ -1,7 +1,7 @@
 import create from "zustand";
 
 const activeViewStore = create((set) => ({
-  activeView: "home",
+  activeView: "Home",
   setActiveView: (val) => set((state) => ({ activeView: val })),
 }));
 

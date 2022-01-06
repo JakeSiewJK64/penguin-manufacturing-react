@@ -41,7 +41,12 @@ export default function HeaderMenu() {
     <div>
       <div className="p-2 shadow">
         <Flex row>
-          <Link to="/">
+          <Link
+            to="/"
+            onClick={() => {
+              setActiveView("Home");
+            }}
+          >
             <div style={{ cursor: "pointer" }} className="w-25">
               <Flex row className="home-item">
                 <img src={logo} className="m-1" alt="" draggable="false" />
