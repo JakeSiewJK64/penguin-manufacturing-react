@@ -18,7 +18,7 @@ export default function Home() {
           alt=""
         />
       </div>
-      <div className="after-banner">
+      <div className="after-banner m-3">
         <HomeComponent />
       </div>
     </div>

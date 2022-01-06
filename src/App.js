@@ -10,6 +10,7 @@ import Home from "./Components/Home/Home";
 import PageNotFound from "./Components/PageNotFound/PageNotFound";
 import authenticationStore from "./Shared/Store/authenticationStore";
 import About from "./Components/About/About";
+import Disclaimer from "./Components/DisclaimerDialog/Disclaimer";
 
 toast.configure();
 
@@ -19,6 +20,7 @@ function App() {
     <div>
       <ToastContainer />
       <HeaderMenu />
+      <Disclaimer />
       <Switch>
         <Route
           exact
