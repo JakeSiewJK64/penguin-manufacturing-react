@@ -21,9 +21,17 @@ function App() {
 
   if (localStorage.getItem("token")) {
     axios
-      .post(process.env.REACT_APP_ENDPOINT + "/verify", {
-        jwt: localStorage.getItem("token"),
-      })
+      .post(
+        process.env.REACT_APP_ENDPOINT + "/verify",
+        {
+          jwt: localStorage.getItem("token"),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      )
       .then((x) => {
         setSessionUser(x.data);
       });
