@@ -7,8 +7,8 @@ const authenticationStore = create((set) => ({
   setCurrentUser: (val) =>
     set((state) => ({
       currentUserSession: {
-        username: val.username,
-        userrole: val.role,
+        username: val !== null ? val.username : null,
+        userrole: val !== null ? val.role : null,
       },
     })),
 }));

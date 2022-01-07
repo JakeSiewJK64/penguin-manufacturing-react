@@ -8,6 +8,8 @@ import { useHistory } from "react-router-dom";
 
 export default function Login() {
   const setIsLoggedIn = authenticationStore((state) => state.setLoggedIn);
+  const setCurrentUser = authenticationStore((state) => state.setCurrentUser);
+
   const history = useHistory();
 
   const SubmitForm = (val) => {
@@ -19,6 +21,22 @@ export default function Login() {
           setIsLoggedIn(true);
           history.push("/");
           localStorage.setItem("token", x.data.jwt);
+
+          axios
+            .post(
+              process.env.REACT_APP_ENDPOINT + "/verify",
+              {
+                jwt: localStorage.getItem("token"),
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+              }
+            )
+            .then((y) => {
+              setCurrentUser(y.data);
+            });
         }
       })
       .catch((err) => {

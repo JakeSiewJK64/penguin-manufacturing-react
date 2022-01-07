@@ -14,6 +14,7 @@ export default function HeaderMenu() {
 
   const setLoggedIn = authenticationStore((state) => state.setLoggedIn);
   const setActiveView = activeViewStore((state) => state.setActiveView);
+  const setCurrentUser = authenticationStore((state) => state.setCurrentUser);
 
   const isAuthenticated = authenticationStore((state) => state.isLoggedIn);
   const sessionUser = authenticationStore((state) => state.currentUserSession);
@@ -38,6 +39,14 @@ export default function HeaderMenu() {
 
   const goToAuth = () => {
     history.push("/authentication");
+  };
+
+  const Logout = () => {
+    localStorage.removeItem("token");
+    goToAuth();
+    setLoggedIn(false);
+    toast.success("You are logged out!");
+    setCurrentUser(null);
   };
 
   return (
@@ -68,11 +77,11 @@ export default function HeaderMenu() {
                 {sessionUser !== null ? sessionUser.userrole : ""}
               </Badge>
             </sup>
-            <strong>
-              {sessionUser !== null
-                ? "Welcome back, " + sessionUser.username
-                : ""}
-            </strong>
+            {sessionUser !== null && sessionUser.username !== null ? (
+              <strong>{"Welcome back, " + sessionUser.username}</strong>
+            ) : (
+              <div></div>
+            )}
             {headerRoutes.map((x) => {
               return (
                 <Flex
@@ -100,16 +109,7 @@ export default function HeaderMenu() {
               </Link>
             ) : (
               <Link to="/authentication">
-                <p
-                  onClick={() => {
-                    localStorage.removeItem("token");
-                    goToAuth();
-                    setLoggedIn(false);
-                    toast.success("You are logged out!");
-                  }}
-                >
-                  Logout
-                </p>
+                <p onClick={Logout}>Logout</p>
               </Link>
             )}
           </Flex>
