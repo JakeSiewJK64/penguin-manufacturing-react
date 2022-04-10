@@ -5,6 +5,8 @@
 3. make sure this file is in the root directory.
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
 
+### URL: https://delta-pharmaceuticals.netlify.app/
+
 # 🤳 To ignore specific files using Git
 1. go to terminal/cmd
 2. type `git update-index --assume-unchanged myfile.example`
